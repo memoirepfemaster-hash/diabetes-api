@@ -1,0 +1,453 @@
+/* src/pages/LoginPage.css */
+/* src/pages/LoginPage.css */
+
+/* ================= CONTAINER PRINCIPAL ================= */
+.login-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* خلفية متدرجة بتدرجات موقع DiabCare */
+.login-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 20% 30%, #0a0f2c, #020611);
+  z-index: 0;
+}
+
+/* تأثير الجسيمات المتحركة في الخلفية */
+.login-background::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(circle at 20% 40%, rgba(124, 92, 255, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(79, 209, 197, 0.1) 0%, transparent 50%);
+  animation: floatBackground 15s ease-in-out infinite alternate;
+}
+
+@keyframes floatBackground {
+  0% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+}
+
+/* ================= CARD PRINCIPAL ================= */
+.login-card {
+  position: relative;
+  z-index: 1;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  border-radius: 24px;
+  padding: 45px 40px;
+  width: 100%;
+  max-width: 480px;
+  border: 1px solid rgba(124, 92, 255, 0.3);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.login-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 30px 60px -12px rgba(124, 92, 255, 0.2);
+  border-color: rgba(124, 92, 255, 0.5);
+}
+
+/* ================= HEADER ================= */
+.login-header {
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+/* عنوان Bienvenue بتدرج ملون متحرك مثل الصفحة الرئيسية */
+.login-title {
+  margin-bottom: 12px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.title-gradient {
+  font-size: 42px;
+  font-weight: 800;
+  background: linear-gradient(90deg, #ffffff, #7c5cff, #4fd1c5, #ffffff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  background-size: 300% 100%;
+  animation: gradientMove 3s ease infinite;
+  letter-spacing: 1px;
+}
+
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.login-subtitle {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 14px;
+}
+
+/* ================= FORM GROUP ================= */
+.form-group {
+  margin-bottom: 25px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 10px;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+}
+
+/* حقل الإدخال مع أيقونة */
+.input-icon {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-icon-symbol {
+  position: absolute;
+  left: 15px;
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.5);
+  z-index: 1;
+  transition: all 0.3s ease;
+}
+
+.login-input {
+  width: 100%;
+  padding: 14px 45px 14px 45px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(124, 92, 255, 0.3);
+  border-radius: 12px;
+  font-size: 15px;
+  color: white;
+  transition: all 0.3s ease;
+  font-family: 'Inter', sans-serif;
+}
+
+.login-input::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.login-input:focus {
+  outline: none;
+  border-color: #7c5cff;
+  background: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 0 0 3px rgba(124, 92, 255, 0.2);
+}
+
+/* تبديل إظهار كلمة المرور */
+.password-toggle {
+  position: absolute;
+  right: 15px;
+  cursor: pointer;
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.6);
+  transition: color 0.3s ease;
+  z-index: 1;
+}
+
+.password-toggle:hover {
+  color: #7c5cff;
+}
+
+/* ================= BOUTON DE CONNEXION ================= */
+.login-button {
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(135deg, #7c5cff, #4fd1c5);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 10px;
+  position: relative;
+  overflow: hidden;
+}
+
+.login-button::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.login-button:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+.login-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px -5px rgba(124, 92, 255, 0.4);
+}
+
+.login-button:active {
+  transform: translateY(1px);
+}
+
+.button-arrow {
+  transition: transform 0.3s ease;
+  font-size: 18px;
+}
+
+.login-button:hover .button-arrow {
+  transform: translateX(5px);
+}
+
+.login-button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* سبينر التحميل */
+.loading-spinner {
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ================= رسالة الخطأ ================= */
+.login-error {
+  background: rgba(220, 38, 38, 0.15);
+  backdrop-filter: blur(10px);
+  color: #ff6b6b;
+  padding: 12px 15px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border: 1px solid rgba(255, 107, 107, 0.3);
+  animation: shake 0.5s ease;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+.error-icon {
+  font-size: 16px;
+}
+
+/* ================= DIVIDER ================= */
+.login-divider {
+  text-align: center;
+  margin: 30px 0;
+  position: relative;
+}
+
+.login-divider::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(124, 92, 255, 0.5), transparent);
+}
+
+.login-divider span {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 0 20px;
+  position: relative;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 14px;
+  backdrop-filter: blur(10px);
+}
+
+/* ================= FOOTER ================= */
+.login-footer {
+  text-align: center;
+  margin-top: 25px;
+}
+
+.login-footer p {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+
+.login-footer a {
+  color: #7c5cff;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.login-footer a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #7c5cff, #4fd1c5);
+  transition: width 0.3s ease;
+}
+
+.login-footer a:hover::after {
+  width: 100%;
+}
+
+.login-footer a:hover {
+  color: #4fd1c5;
+}
+
+.forgot-link {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.5);
+  display: inline-block;
+  margin-top: 8px;
+}
+
+.forgot-link:hover {
+  color: #4fd1c5;
+}
+
+/* ================= ANIMATIONS ================= */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.login-card {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+/* ================= RESPONSIVE DESIGN ================= */
+@media (max-width: 640px) {
+  .login-card {
+    margin: 20px;
+    padding: 35px 25px;
+    max-width: 90%;
+  }
+  
+  .title-gradient {
+    font-size: 32px;
+  }
+  
+  .login-input {
+    padding: 12px 40px 12px 40px;
+    font-size: 14px;
+  }
+  
+  .login-button {
+    padding: 12px;
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .login-card {
+    padding: 25px 20px;
+  }
+  
+  .title-gradient {
+    font-size: 28px;
+  }
+  
+  .form-group {
+    margin-bottom: 18px;
+  }
+  
+  .input-icon-symbol {
+    font-size: 14px;
+  }
+  
+  .login-subtitle {
+    font-size: 12px;
+  }
+}
+
+/* ================= DARK MODE SUPPORT ================= */
+@media (prefers-color-scheme: dark) {
+  .login-card {
+    background: rgba(0, 0, 0, 0.4);
+  }
+}
+
+/* ================= TOUCH DEVICES ================= */
+@media (hover: none) {
+  .login-button:hover {
+    transform: none;
+  }
+  
+  .login-footer a::after {
+    display: none;
+  }
+}
+
+/* ================= SCROLLBAR ================= */
+.login-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.login-container::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.login-container::-webkit-scrollbar-thumb {
+  background: #7c5cff;
+  border-radius: 4px;
+}
+
+.login-container::-webkit-scrollbar-thumb:hover {
+  background: #4fd1c5;
+}
